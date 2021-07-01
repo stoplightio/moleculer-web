@@ -1472,6 +1472,7 @@ module.exports = {
 		parseActionRestObject(restRoute, rawName, basePath) {
 			// Handle route: { method: "POST", path: "/other", basePath: "newBasePath" }
 			return Object.assign({}, restRoute, {
+				type: restRoute.type,
 				method: restRoute.method || "*",
 				path: (restRoute.basePath ? restRoute.basePath : basePath) + (restRoute.path ? restRoute.path : rawName)
 			});
